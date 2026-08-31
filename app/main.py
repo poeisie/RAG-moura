@@ -23,6 +23,11 @@ app = FastAPI(
 )
 
 
+@app.get("/")
+def root() -> dict:
+    return {"status": "ok", "docs": "/docs"}
+
+
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok"}
