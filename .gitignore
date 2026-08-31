@@ -1,0 +1,22 @@
+# Ambiente
+.venv/
+venv/
+env/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Dados gerados
+index_store/
+historico.db
+*.db
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
