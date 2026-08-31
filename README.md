@@ -52,8 +52,6 @@ data/*.md  ──►  load_documents()  ──►  split_documents() (chunking)
 ├── scripts/
 │   └── build_index.py      # (re)gera o índice FAISS a partir de data/
 ├── tests/                  # suíte pytest (13 testes)
-├── docs/
-│   └── decisoes.md         # detalhamento das decisões técnicas
 ├── requirements.txt
 ├── .env.example
 └── pyproject.toml          # configuração do pytest
