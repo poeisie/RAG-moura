@@ -23,3 +23,12 @@ class RespostaResponse(BaseModel):
     resposta: str
     fontes: List[str]
     trechos_usados: List[Trecho]
+
+
+class InteracaoHistorico(BaseModel):
+    id: int
+    pergunta: str
+    resposta: str
+    fontes: List[str]
+    k_usado: Optional[int]
+    criado_em: str
