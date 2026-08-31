@@ -18,6 +18,8 @@ Regras:
 
 
 def _montar_contexto(chunks: List[Document]) -> str:
+    """Concatena os chunks recuperados em um único bloco de texto, identificando a fonte de
+    cada trecho para que o modelo consiga citá-la corretamente."""
     partes = []
     for chunk in chunks:
         fonte = chunk.metadata.get("source", "desconhecido")
@@ -26,6 +28,12 @@ def _montar_contexto(chunks: List[Document]) -> str:
 
 
 def responder_pergunta(pergunta: str, k: Optional[int] = None) -> Dict:
+    """Executa o pipeline RAG completo para `pergunta`: recupera os trechos mais relevantes,
+    monta o prompt com o contexto e pede ao LLM que responda citando a(s) fonte(s).
+
+    Retorna um dicionário com `resposta` (str), `fontes` (lista de nomes de arquivo) e
+    `trechos_usados` (lista de `Document`, para a API expor o conteúdo recuperado).
+    """
     chunks = retrieve_chunks(pergunta, k)
 
     if not chunks:
